@@ -1,11 +1,21 @@
-// Welcome message on page load
 window.addEventListener('load', () => {
-  const welcomeMessage = document.getElementById('welcomeMessage');
-  welcomeMessage.textContent = "Welcome to Ahmed El Dessouky's portfolio page!";
+  document.getElementById('welcomeMessage').textContent = "Welcome to Ahmed El Dessouky's interactive CV webpage!";
 });
 
-// Dark mode / light mode toggle
 const themeToggle = document.getElementById('themeToggle');
+const toggleSkillsBtn = document.getElementById('toggleSkillsBtn');
+const toggleProjectsBtn = document.getElementById('toggleProjectsBtn');
+const toggleActivitiesBtn = document.getElementById('toggleActivitiesBtn');
+const toggleAchievementsBtn = document.getElementById('toggleAchievementsBtn');
+const skillsList = document.getElementById('skillsList');
+const projectsList = document.getElementById('projectsList');
+const activitiesBlock = document.getElementById('activitiesBlock');
+const achievementsList = document.getElementById('achievementsList');
+const addSkillBtn = document.getElementById('addSkillBtn');
+const skillInput = document.getElementById('skillInput');
+const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('formMessage');
+
 themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   themeToggle.textContent = document.body.classList.contains('dark')
@@ -13,9 +23,6 @@ themeToggle.addEventListener('click', () => {
     : 'Toggle Dark Mode';
 });
 
-// Show / hide sections
-const toggleSkillsBtn = document.getElementById('toggleSkillsBtn');
-const skillsList = document.getElementById('skillsList');
 toggleSkillsBtn.addEventListener('click', () => {
   skillsList.classList.toggle('hidden');
   toggleSkillsBtn.textContent = skillsList.classList.contains('hidden')
@@ -23,8 +30,20 @@ toggleSkillsBtn.addEventListener('click', () => {
     : 'Hide Skills';
 });
 
-const toggleAchievementsBtn = document.getElementById('toggleAchievementsBtn');
-const achievementsList = document.getElementById('achievementsList');
+toggleProjectsBtn.addEventListener('click', () => {
+  projectsList.classList.toggle('hidden');
+  toggleProjectsBtn.textContent = projectsList.classList.contains('hidden')
+    ? 'Show Projects'
+    : 'Hide Projects';
+});
+
+toggleActivitiesBtn.addEventListener('click', () => {
+  activitiesBlock.classList.toggle('hidden');
+  toggleActivitiesBtn.textContent = activitiesBlock.classList.contains('hidden')
+    ? 'Show Activities'
+    : 'Hide Activities';
+});
+
 toggleAchievementsBtn.addEventListener('click', () => {
   achievementsList.classList.toggle('hidden');
   toggleAchievementsBtn.textContent = achievementsList.classList.contains('hidden')
@@ -32,31 +51,19 @@ toggleAchievementsBtn.addEventListener('click', () => {
     : 'Hide Achievements';
 });
 
-// Dynamic skills list
-const addSkillBtn = document.getElementById('addSkillBtn');
-const skillInput = document.getElementById('skillInput');
 addSkillBtn.addEventListener('click', () => {
-  const newSkill = skillInput.value.trim();
-
-  if (newSkill === '') {
-    return;
-  }
-
+  const value = skillInput.value.trim();
+  if (!value) return;
   const li = document.createElement('li');
-  li.textContent = newSkill;
+  li.textContent = value;
   skillsList.appendChild(li);
   skillsList.classList.remove('hidden');
   toggleSkillsBtn.textContent = 'Hide Skills';
   skillInput.value = '';
 });
 
-// Contact form validation
-const contactForm = document.getElementById('contactForm');
-const formMessage = document.getElementById('formMessage');
-
-contactForm.addEventListener('submit', (event) => {
-  event.preventDefault();
-
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
   const message = document.getElementById('message').value.trim();

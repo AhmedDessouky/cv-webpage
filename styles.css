@@ -19,7 +19,7 @@ body.dark {
 }
 
 .container {
-  max-width: 1050px;
+  max-width: 1120px;
   margin: 0 auto;
 }
 
@@ -55,14 +55,14 @@ body.dark button {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 170px 1fr;
+  grid-template-columns: 180px 1fr;
   gap: 24px;
   align-items: center;
 }
 
 .profile-pic {
-  width: 170px;
-  height: 170px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   border: 4px solid rgba(255,255,255,0.85);
@@ -70,7 +70,7 @@ body.dark button {
 }
 
 h1 {
-  font-size: 2.4rem;
+  font-size: 2.5rem;
   margin-bottom: 8px;
 }
 
@@ -78,6 +78,7 @@ h1 {
   color: #dbeafe;
   font-weight: 700;
   margin-bottom: 12px;
+  font-size: 1.1rem;
 }
 
 .welcome {
@@ -101,7 +102,7 @@ body.dark .welcome {
 }
 
 .card {
-  background: rgba(255,255,255,0.95);
+  background: rgba(255,255,255,0.96);
   border-radius: 20px;
   padding: 22px;
   box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
@@ -122,6 +123,15 @@ h2 {
 
 body.dark h2 {
   color: #93c5fd;
+}
+
+h3 {
+  margin-bottom: 10px;
+  color: #2563eb;
+}
+
+body.dark h3 {
+  color: #bfdbfe;
 }
 
 ul {
@@ -205,9 +215,20 @@ body.dark textarea {
   display: none;
 }
 
+.two-col {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.contact p {
+  margin-bottom: 6px;
+}
+
 @media (max-width: 768px) {
   .hero-grid,
-  .grid {
+  .grid,
+  .two-col {
     grid-template-columns: 1fr;
   }
 
